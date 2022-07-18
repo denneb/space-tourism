@@ -1,0 +1,44 @@
+.dot-indicators {
+  & > * {
+    cursor: pointer;
+    border: 0;
+    border-radius: 50%;
+    aspect-ratio: 1; /*circulos sin agregar altura  ancho*/
+    padding: 0.5em;
+    background-color: #{'hsl(var(--clr-white), 0.25 )'};
+  }
+
+  & > *:hover,
+  & > *:focus {
+    background-color: #{'hsl(var(--clr-white), 0.5 )'};
+  }
+
+  & > [aria-selected='true'] {
+    background-color: #{'hsl(var(--clr-white), 1 )'};
+  }
+}
+
+.number-indicators {
+  & > * {
+    cursor: pointer;
+    border: 1px solid #{'hsl(var(--clr-white), .25 )'};
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
+    padding: 0.5em;
+    background-color: #{'hsl(var(--clr-dark), 0.5 )'};
+    color: #{'hsl(var(--clr-white), 1 )'};
+  }
+
+  & > *:hover,
+  & > *:focus {
+    background-color: #{'hsl(var(--clr-dark), 0.5 )'};
+    border: 1px solid #{'hsl(var(--clr-white), 1 )'};
+    color: #{'hsl(var(--clr-white), 1 )'};
+  }
+
+  & > [aria-selected='true'] {
+    background-color: #{'hsl(var(--clr-white), 1 )'};
+    color: #{'hsl(var(--clr-dark), 1 )'};
+  }
+}

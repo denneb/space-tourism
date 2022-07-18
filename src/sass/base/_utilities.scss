@@ -1,0 +1,91 @@
+.flex {
+  display: flex;
+  gap: $gap;
+}
+
+.grid {
+  display: grid;
+  gap: $gap;
+}
+
+.gap-2 {
+  gap: $gap-2;
+}
+
+.gap-3 {
+  gap: $gap-3;
+}
+
+/* 
+
+la expresion * + * implica que los estilos aplicaran
+a todos los hijos que tengan un hermano antes que ellos
+lo que quiere decir que el estilo aplicara a todos los elementos
+hijos, menos al primeroc, otro modo de llegar a lo mismo es con
+*:not(:first-child)
+
+*/
+.flow > * + * {
+  margin-top: $flow-space;
+}
+
+.container {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 2rem;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap; /* added line */
+  width: 1px;
+}
+
+.underline-indicators {
+  & > * {
+    border: 0;
+    border-bottom: 0.2rem solid #{'hsl(var(--clr-white), 0 )'};
+
+    padding: $underline-gap 0;
+  }
+
+  & > *:hover,
+  & > *:focus {
+    border-color: #{'hsl(var(--clr-white), 0.25 )'};
+  }
+
+  & > .active,
+  & > [aria-selected='true'] {
+    color: #{'hsl(var(--clr-white), 1 )'};
+    border-color: #{'hsl(var(--clr-white), 1 )'};
+  }
+}
+
+.p-1 {
+  padding: 1rem;
+}
+
+.p-2 {
+  padding: 2rem;
+}
+
+.p-3 {
+  padding: 3rem;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+.mt-3 {
+  margin-top: 3rem;
+}

@@ -1,0 +1,32 @@
+.circle-button {
+  aspect-ratio: 1; /* same as 1/1 */
+  border-radius: 50%;
+  display: grid;
+  padding: 0 2em;
+  place-items: center;
+  position: relative;
+  text-decoration: none;
+  z-index: 1;
+
+  /* z-index: 1; si se agrega este valor se crea 
+  un nuevo stacking context lo que permite que el 
+  elemento hijo no este mas atras que el elemento padre */
+
+  &::after {
+    background: #{'hsl(var(--clr-white), .15 )'};
+    border-radius: inherit;
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: opacity 500ms linear, transform 700ms ease-in-out;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
