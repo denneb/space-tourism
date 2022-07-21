@@ -14,7 +14,7 @@ $underline-gap: 1rem;
 }
 
 /* Font sizes */
-$fs-900: 9.375rem;
+$fs-900: clamp(5rem, 8vw, 9.375rem);
 $fs-800: 6.25rem;
 $fs-700: 3.5rem;
 $fs-600: 2rem;
@@ -27,3 +27,17 @@ $fs-200: 0.875rem;
 $ff-serif: 'Bellefair', serif;
 $ff-sans-cond: 'Barlow Condensed', sans-serif;
 $ff-sans-normal: 'Barlow', sans-serif;
+
+@media (min-width: 35em) {
+  $fs-800: 5rem;
+  $fs-700: 2.5rem;
+  $fs-600: 1.5rem;
+  $fs-400: 1rem;
+}
+
+@media (min-width: 45em) {
+  $fs-800: 6.25rem;
+  $fs-700: 3.5rem;
+  $fs-600: 2rem;
+  $fs-400: 1.125rem;
+}

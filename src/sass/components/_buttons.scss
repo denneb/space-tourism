@@ -1,7 +1,14 @@
 .circle-button {
   aspect-ratio: 1; /* same as 1/1 */
   border-radius: 50%;
-  display: grid;
+  /* la propiedad display:grid fue usada para centrar facilmente el texto
+  el problema con esto es que grid es un inner-display value y el 
+  outer-display-value se convierte en block y como es un block element
+  esta creciendo to fit the page automaticamente, se arregla cambiando a 
+  'inline-grid' lo que quiere decir que no se expandira para ajustarse al contenedor  
+  */
+  display: inline-grid;
+  font-size: 2rem;
   padding: 0 2em;
   place-items: center;
   position: relative;

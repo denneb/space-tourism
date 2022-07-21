@@ -20,19 +20,20 @@ ol[role='list'] {
   list-style: none;
 }
 
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
-/* Set core body defaults */
 body {
   background-color: #{'hsl(var(--clr-dark) )'};
   color: #{'hsl(var(--clr-white) )'};
   font-family: $ff-sans-normal;
   font-size: $fs-400;
   line-height: 1.5;
-  min-height: 100vh;
   text-rendering: optimizeSpeed;
+
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-rows: min-content 1fr;
+
+  border: 2px solid yellow;
 }
 
 a:not([class]) {
@@ -53,10 +54,6 @@ select {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-
   *,
   *::before,
   *::after {
