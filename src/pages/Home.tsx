@@ -4,8 +4,8 @@ import { MainLayout } from '../components/layout';
 export const Home = () => {
   return (
     <MainLayout className={'home'}>
-      <main className='grid-container grid-container__home'>
-        <div>
+      <main className='grid-container grid-container__home border'>
+        <div className='border'>
           <h1 className='text-accent fs-500 ff-sans-cond uppercase letter-spacing-1'>
             So, you want to travel to{' '}
             <span className='d-block fs-900 ff-serif text-white'>Space</span>
@@ -17,7 +17,7 @@ export const Home = () => {
             world experience!
           </p>
         </div>
-        <div>
+        <div className='border'>
           <CircleLargeButton url={'#'} label={'Explore'} />
         </div>
       </main>

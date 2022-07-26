@@ -1,63 +1,70 @@
+import { useEffect, useState } from 'react';
 import { MainLayout } from '../components/layout';
+import { Destination } from '../interfaces/pages';
+import { getDestinations } from '../helpers/getData';
+import { DestinationInfo, TabDestination } from '../components/destination';
 
-export const Destination = () => {
+interface pageState {
+  destinations: Destination[];
+  activeDestination?: Destination;
+}
+
+const initialState = {
+  destinations: [],
+};
+
+export const DestinationPage = () => {
+  const [pageState, setPageState] = useState<pageState>(initialState);
+  const { destinations, activeDestination } = pageState;
+
+  useEffect(() => {
+    const destinationList = getDestinations();
+
+    if (destinationList.length >= 1)
+      setPageState((state) => ({
+        ...state,
+        destinations: destinationList,
+        activeDestination: destinationList[0],
+      }));
+  }, []);
+
+  const handleClick = (nameDestination: string) => {
+    const newActiveDestination = destinations.find(
+      (item) => item.name === nameDestination
+    );
+    if (newActiveDestination)
+      setPageState((state) => ({
+        ...state,
+        activeDestination: newActiveDestination,
+      }));
+  };
+
   return (
     <MainLayout className={'destination'}>
       <main className='grid-container grid-container__destination flow'>
         <h1 className='numbered-title'>
           <span>01</span> Pick your destination
         </h1>
-        <img
-          src={require('../assets/destination/image-moon.png')}
-          alt='The moon'
-        />
+
         <div className='tab-list underline-indicators flex'>
-          <button
-            aria-selected='true'
-            className='uppercase ff-sans-cond text-accent  letter-spacing-2'
-          >
-            Moon
-          </button>
-          <button
-            aria-selected='false'
-            className='uppercase ff-sans-cond text-accent  letter-spacing-2'
-          >
-            Mars
-          </button>
-          <button
-            aria-selected='false'
-            className='uppercase ff-sans-cond text-accent  letter-spacing-2'
-          >
-            Europa
-          </button>
-          <button
-            aria-selected='false'
-            className='uppercase ff-sans-cond text-accent letter-spacing-2'
-          >
-            Titan
-          </button>
+          {destinations &&
+            destinations.map(({ name }) => {
+              let isActive = false;
+              if (activeDestination?.name === name) isActive = true;
+              return (
+                <TabDestination
+                  onClick={handleClick}
+                  key={`tab-${name}`}
+                  label={name}
+                  isActive={isActive}
+                />
+              );
+            })}
         </div>
-        <article className='destination-info flow'>
-          <h2 className='fs-800 uppercase ff-serif'>Moon</h2>
 
-          <p>
-            See our planet as you’ve never seen it before. A perfect relaxing
-            trip away to help regain perspective and come back refreshed. While
-            you’re there, take in some history by visiting the Luna 2 and Apollo
-            11 landing sites.
-          </p>
-
-          <div className='flex destination-meta '>
-            <div className=''>
-              <h3 className='text-accent fs-300 uppercase'>Avg. distance</h3>
-              <p className=' ff-serif uppercase'>384,400 km</p>
-            </div>
-            <div>
-              <h3 className='text-accent fs-300 uppercase'>Est. travel time</h3>
-              <p className='ff-serif uppercase'>3 days</p>
-            </div>
-          </div>
-        </article>
+        {activeDestination && (
+          <DestinationInfo destination={activeDestination} />
+        )}
       </main>
     </MainLayout>
   );

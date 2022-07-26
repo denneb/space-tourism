@@ -1,7 +1,15 @@
 import data from '../data/data.json';
+import { Pages } from '../interfaces/pages';
 
-export const Destination = () => {};
+const allData: Pages = data;
+export const getDestinations = () => {
+  return allData.destinations;
+};
 
-export const Crew = () => {};
+export const getCrewMembers = () => {
+  return allData.crew;
+};
 
-export const Technology = () => {};
+export const getTechnologiesInfo = () => {
+  return allData.technology;
+};

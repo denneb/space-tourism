@@ -1,6 +1,45 @@
+import { FC, useEffect, useState } from 'react';
+import CrewMember from '../components/crew/CrewMember';
 import { MainLayout } from '../components/layout';
+import { getCrewMembers } from '../helpers/getData';
+import { Crew } from '../interfaces/pages';
+import TabCrew from '../components/crew/TabCrew';
 
-export const Crew = () => {
+interface pageState {
+  activeCrewMember?: Crew;
+  crewList: Crew[];
+}
+
+const initialState = {
+  crewList: [],
+};
+
+export const CrewPage: FC = () => {
+  const [pageState, setPageState] = useState<pageState>(initialState);
+  const { crewList, activeCrewMember } = pageState;
+
+  useEffect(() => {
+    const crewMembersList = getCrewMembers();
+
+    if (crewMembersList.length >= 1)
+      setPageState((state) => ({
+        ...state,
+        crewList: crewMembersList,
+        activeCrewMember: crewMembersList[0],
+      }));
+  }, []);
+
+  const handleClick = (crewMember: string) => {
+    const newActiveCrewMember = crewList.find(
+      (item) => item.name === crewMember
+    );
+    if (newActiveCrewMember)
+      setPageState((state) => ({
+        ...state,
+        activeCrewMember: newActiveCrewMember,
+      }));
+  };
+
   return (
     <MainLayout className={'crew'}>
       <main className='grid-container grid-container__crew flow'>
@@ -8,37 +47,23 @@ export const Crew = () => {
           <span aria-hidden='true'>02</span> Meet your crew
         </h1>
 
-        <div className='dot-indicators flex'>
-          <button aria-selected='true'>
-            <span className='sr-only'>The commander</span>
-          </button>
-          <button aria-selected='false'>
-            <span className='sr-only'>The mission specialist</span>
-          </button>
-          <button aria-selected='false'>
-            <span className='sr-only'>The pilot</span>
-          </button>
-          <button aria-selected='false'>
-            <span className='sr-only'>The crew engineer</span>
-          </button>
+        <div className='dot-indicators flex' aria-label='crew member list'>
+          {crewList &&
+            crewList.map(({ name }) => {
+              let isActive = false;
+              if (activeCrewMember?.name === name) isActive = true;
+              return (
+                <TabCrew
+                  key={`cm-${name}`}
+                  label={name}
+                  onClick={handleClick}
+                  isActive={isActive}
+                />
+              );
+            })}
         </div>
 
-        <article className='crew-details flow'>
-          <header className='flow flow--space-small'>
-            <h2 className='fs-600 ff-serif uppercase'>Commander</h2>
-            <p className='fs-700 uppercase ff-serif'>Douglas Hurley</p>
-          </header>
-          <p>
-            Douglas Gerald Hurley is an American engineer, former Marine Corps
-            pilot and former NASA astronaut. He launched into space for the
-            third time as commander of Crew Dragon Demo-2.
-          </p>
-        </article>
-
-        <img
-          src={require('../assets/crew/image-douglas-hurley.png')}
-          alt='Douglas Hurley'
-        />
+        {activeCrewMember && <CrewMember crewMember={activeCrewMember} />}
       </main>
     </MainLayout>
   );
