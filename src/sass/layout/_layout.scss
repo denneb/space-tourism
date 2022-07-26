@@ -3,6 +3,177 @@
 
   display: grid;
   grid-template-rows: min-content 1fr;
+}
 
-  border: 2px solid yellow;
+.container {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 2rem;
+}
+
+.grid-container {
+  display: grid;
+  text-align: center;
+  place-items: center;
+  padding-inline: 1rem;
+  padding-bottom: 3rem;
+
+  /*
+  otra opcion para centrar los elementos
+  place-content: center;
+  row-gap: 7vh;*/
+
+  & p:not([class]) {
+    /*maximo numero de caracteres a lo ancho*/
+    max-width: 50ch;
+  }
+
+  &__destination {
+    margin-top: 2rem;
+    grid-template-areas:
+      'title'
+      'image'
+      'tabs'
+      'content';
+  }
+
+  &__destination > img {
+    grid-area: image;
+    max-width: 60%;
+  }
+
+  &__destination > .tab-list {
+    grid-area: tabs;
+  }
+
+  &__destination > .destination-info {
+    grid-area: content;
+  }
+}
+
+.destination-meta {
+  flex-direction: column;
+  border-top: 1px solid #{'hsl(var(--clr-white), 0.1 )'};
+  padding-top: 2.5rem;
+  margin-top: 2.5rem;
+
+  & p {
+    font-size: 1.75rem;
+  }
+}
+
+.numbered-title {
+  grid-area: title;
+}
+
+.grid-container__crew {
+  grid-template-areas:
+    'title'
+    'image'
+    'tabs'
+    'content';
+
+  & > img {
+    grid-area: image;
+    max-width: 60%;
+    border-bottom: 1px solid #{'hsl(var(--clr-white), 0.1 )'};
+  }
+
+  & > .dot-indicators {
+    grid-area: tabs;
+  }
+
+  & > .crew-details {
+    grid-area: content;
+  }
+}
+
+.crew-details h2 {
+  opacity: 0.5;
+}
+
+@media (min-width: 35em) {
+  .numbered-title {
+    justify-self: start;
+    margin-top: 2rem;
+  }
+
+  .destination-meta {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .grid-container__crew {
+    padding-bottom: 0;
+    grid-template-areas:
+      'title'
+      'content'
+      'tabs'
+      'image';
+  }
+}
+
+@media (min-width: 45em) {
+  .grid-container {
+    /*
+  la funcion minmax() obtiene un numero entre el numero minimo y maximo dado,
+  la funcion se puede usar dentro de grid-template-columns,grid-template-rows,
+  grid-auto-columns, grid-auto-rows
+  1fr significa que tome el espacio disponible para su uso
+  */
+    text-align: left;
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+        1rem,
+        1fr
+      );
+    column-gap: $gap-2;
+
+    &__home > *:first-child {
+      grid-column: 2;
+    }
+
+    &__home > *:last-child {
+      grid-column: 3;
+    }
+
+    &__home {
+      padding-bottom: calc(max(6rem, 20vh));
+      align-items: end;
+    }
+
+    &__destination {
+      justify-items: start;
+      align-content: start;
+      /*Los puntos  representan un espacio vacio en el template*/
+      grid-template-areas:
+        '. title title .'
+        '. image tabs .'
+        '. image content .';
+    }
+
+    &__destination > img,
+    &__crew > img {
+      max-width: 90%;
+    }
+  }
+
+  .destination-meta {
+    gap: calc(min(6vw, 6rem));
+    justify-content: start;
+  }
+
+  .grid-container__crew {
+    grid-template-areas:
+      '. title title .'
+      '. content image .'
+      '. tabs image .';
+
+    & > .dot-indicators {
+      justify-self: start;
+    }
+
+    /* & > img {
+      align-self: end;
+    }*/
+  }
 }

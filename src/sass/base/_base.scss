@@ -27,13 +27,14 @@ body {
   font-size: $fs-400;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
-
+  overflow-x: hidden;
+  /*
   min-height: 100vh;
 
   display: grid;
   grid-template-rows: min-content 1fr;
-
-  border: 2px solid yellow;
+*/
+  //border: 2px solid yellow;
 }
 
 a:not([class]) {

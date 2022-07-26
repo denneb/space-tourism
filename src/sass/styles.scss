@@ -10,5 +10,10 @@
 @import './components/navigation';
 @import './components/tab-list';
 @import './components/dot-indicators';
+@import './components/header';
 
 @import './layout/layout';
+
+@import './pages/home.scss';
+@import './pages/destination.scss';
+@import './pages/crew.scss';

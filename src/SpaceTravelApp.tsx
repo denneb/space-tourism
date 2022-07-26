@@ -1,7 +1,12 @@
-import { HomeAgain } from './pages/HomeAgain';
+import { BrowserRouter } from 'react-router-dom';
+import { AppRoutes } from './routes/AppRoutes';
 
 function SpaceTravelApp() {
-  return <HomeAgain />;
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
 }
 
 export default SpaceTravelApp;

@@ -9,7 +9,7 @@ export const CircleLargeButton: FC<Props> = ({ url, label }) => {
   return (
     <a
       href={url}
-      className='circle-button uppercase ff-serif fs-600 text-dark  bg-white'
+      className='circle-button uppercase ff-serif  text-dark  bg-white'
     >
       {label}
     </a>

@@ -1,16 +1,24 @@
 .flex {
   display: flex;
   gap: $gap;
+}
 
-  &.even-columns > * {
-    width: 100%;
-    outline: 1px solid limegreen;
-  }
+.flex.even-columns > * {
+  width: 100%;
+  background-color: 1px solid orange;
 }
 
 .grid {
   display: grid;
   gap: $gap;
+}
+
+.translate-x-0 {
+  transform: translateX(0);
+}
+
+.translate-x-100 {
+  transform: translateX(100%);
 }
 
 .gap-2 {
@@ -19,6 +27,18 @@
 
 .gap-3 {
   gap: $gap-3;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.border {
+  border: 1px solid #f1f1f1;
 }
 
 /* 
@@ -34,50 +54,8 @@ hijos, menos al primeroc, otro modo de llegar a lo mismo es con
   margin-top: $flow-space;
 }
 
-.container {
-  margin-inline: auto;
-  max-width: 80rem;
-  padding-inline: 2rem;
-}
-
-.grid-container {
-  display: grid;
-  text-align: center;
-  place-items: center;
-  height: 100vh;
-
-  border: 2px solid green;
-
-  & * {
-    max-width: 50ch;
-  }
-}
-
-@media (min-width: 45rem) {
-  .grid-container {
-    /*
-  la funcion minmax() obtiene un numero entre el numero minimo y maximo dado,
-  la funcion se puede usar dentro de grid-template-columns,grid-template-rows,
-  grid-auto-columns, grid-auto-rows
-  1fr significa que tome el espacio disponible para su uso
-  */
-    text-align: left;
-    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
-        2rem,
-        1fr
-      );
-    column-gap: $gap-2;
-
-    & > *:first-child {
-      grid-column: 2;
-      border: 1px solid white;
-    }
-
-    & > *:last-child {
-      grid-column: 3;
-      border: 1px solid white;
-    }
-  }
+.flow__space-small {
+  margin-top: 0.5rem;
 }
 
 .sr-only {
@@ -96,8 +74,9 @@ hijos, menos al primeroc, otro modo de llegar a lo mismo es con
   & > * {
     border: 0;
     border-bottom: 0.2rem solid #{'hsl(var(--clr-white), 0 )'};
-
-    padding: $underline-gap 0;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    background-color: transparent;
   }
 
   & > *:hover,
@@ -137,4 +116,8 @@ hijos, menos al primeroc, otro modo de llegar a lo mismo es con
 }
 .mt-3 {
   margin-top: 3rem;
+}
+
+.w-100 {
+  width: 100%;
 }

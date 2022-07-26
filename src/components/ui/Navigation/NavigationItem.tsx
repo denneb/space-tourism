@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { NavLink } from 'react-router-dom';
 
 interface Props {
   labelIndex: string;
@@ -6,6 +7,9 @@ interface Props {
   url: string;
   className?: string;
 }
+
+const classItem = 'ff-sans-cond uppercase text-white letter-spacing-2';
+
 export const NavigationItem: FC<Props> = ({
   labelIndex,
   label,
@@ -13,14 +17,11 @@ export const NavigationItem: FC<Props> = ({
   className = '',
 }) => {
   return (
-    <li className={className}>
-      <a
-        className='ff-sans-cond uppercase text-white letter-spacing-2'
-        href={url}
-      >
-        <span>{labelIndex}</span>
+    <li>
+      <NavLink className={({ isActive }: any) => classItem} to={url}>
+        <span aria-hidden='true'>{labelIndex}</span>
         {label}
-      </a>
+      </NavLink>
     </li>
   );
 };

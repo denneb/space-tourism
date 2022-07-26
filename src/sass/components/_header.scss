@@ -1,0 +1,8 @@
+.header {
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    margin: 2rem clamp(1.5rem, 5vw, 3.5rem);
+  }
+}

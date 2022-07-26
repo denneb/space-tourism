@@ -1,18 +1,31 @@
+import { FC } from 'react';
 import { NavigationItem } from './NavigationItem';
 
-export const Navigation = () => {
+interface Props {
+  className?: string;
+}
+
+export const Navigation: FC<Props> = ({ className = '' }) => {
   return (
-    <nav>
-      <ul className='primary-navigation underline-indicators  flex gap-3'>
+    <nav className=''>
+      <ul
+        id='primary-navigation'
+        className={
+          className + ` primary-navigation underline-indicators  flex gap-3 `
+        }
+      >
+        <NavigationItem labelIndex={'00'} label={'Home'} url={'/'} />
         <NavigationItem
-          labelIndex={'00'}
-          label={'Home'}
-          url={'/home'}
-          className='active'
+          labelIndex={'01'}
+          label={'Destination'}
+          url={'/destination'}
         />
-        <NavigationItem labelIndex={'01'} label={'Destination'} url={'/home'} />
-        <NavigationItem labelIndex={'02'} label={'Crew'} url={'/home'} />
-        <NavigationItem labelIndex={'03'} label={'Technology'} url={'/home'} />
+        <NavigationItem labelIndex={'02'} label={'Crew'} url={'/crew'} />
+        <NavigationItem
+          labelIndex={'03'}
+          label={'Technology'}
+          url={'/technology'}
+        />
       </ul>
     </nav>
   );
