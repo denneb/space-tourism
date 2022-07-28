@@ -16,14 +16,6 @@ export interface CrewImages {
   webp: string;
 }
 
-export interface Destination {
-  name: string;
-  images: CrewImages;
-  description: string;
-  distance: string;
-  travel: string;
-}
-
 export interface Technology {
   name: string;
   images: TechnologyImages;
@@ -33,4 +25,12 @@ export interface Technology {
 export interface TechnologyImages {
   portrait: string;
   landscape: string;
+}
+
+export interface Destination {
+  name: string;
+  images: CrewImages;
+  description: string;
+  distance: string;
+  travel: string;
 }
