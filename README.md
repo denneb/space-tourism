@@ -14,7 +14,7 @@ Users should be able to:
 
 ### Links
 - [Figma](https://www.figma.com/file/ECUzoNaTXSlgOisRbIOrE3/space-tourism-website) 
-- Live site:
+- [Live site](https://space-tourism-solution-sand.vercel.app/)
 
 ## Available Scripts
 
