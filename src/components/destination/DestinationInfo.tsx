@@ -13,9 +13,9 @@ export const DestinationInfo: FC<Props> = ({ destination, className = '' }) => {
     <>
       <img src={images.png} alt={name} />
       <article className={`destination-info flow ${className}`}>
-        <h2 className='fs-800 uppercase ff-serif'>{name}</h2>
+        <h2 className='fs-800 uppercase ff-serif mb-4'>{name}</h2>
 
-        <p>{description}</p>
+        <p className='text-accent'>{description}</p>
 
         <div className='flex destination-meta '>
           <div className=''>

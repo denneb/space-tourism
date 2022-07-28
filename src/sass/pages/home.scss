@@ -4,14 +4,14 @@
   background-size: cover;
 }
 
-@media (min-width: 35rem) {
+@media (min-width: 45rem) {
   .home {
     background-image: url('../../assets/home/background-home-tablet.jpg');
     background-position: center center;
   }
 }
 
-@media (min-width: 45rem) {
+@media (min-width: 55rem) {
   .home {
     background-image: url('../../assets/home/background-home-desktop.jpg');
   }

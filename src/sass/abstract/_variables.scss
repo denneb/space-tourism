@@ -14,13 +14,13 @@ $underline-gap: 1rem;
 }
 
 /* Font sizes */
-$fs-900: clamp(5rem, 8vw, 9.375rem);
+$fs-900: clamp(7rem, 10vw, 9.5rem);
 $fs-800: 6.25rem;
-$fs-700: 3.5rem;
+$fs-700: 3rem;
 $fs-600: 2rem;
-$fs-500: 1.75rem;
-$fs-400: 1.125rem;
-$fs-300: 1rem;
+$fs-500: 1.85rem;
+$fs-400: 1.325rem;
+$fs-300: 1.13rem;
 $fs-200: 0.875rem;
 
 /*Font families*/
@@ -28,16 +28,16 @@ $ff-serif: 'Bellefair', serif;
 $ff-sans-cond: 'Barlow Condensed', sans-serif;
 $ff-sans-normal: 'Barlow', sans-serif;
 
-@media (min-width: 35em) {
+@media (min-width: 45em) {
   $fs-800: 5rem;
-  $fs-700: 2.5rem;
-  $fs-600: 1.5rem;
+  $fs-700: 2.8rem;
+  $fs-600: 3.4rem;
   $fs-400: 1rem;
 }
 
-@media (min-width: 45em) {
+@media (min-width: 55em) {
   $fs-800: 6.25rem;
-  $fs-700: 3.5rem;
-  $fs-600: 2rem;
-  $fs-400: 1.125rem;
+  $fs-700: 2.5rem;
+  $fs-600: 3.5rem;
+  $fs-400: 1.225rem;
 }

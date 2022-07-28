@@ -54,6 +54,10 @@
   line-height: 1.1;
 }
 
+.line-h {
+  line-height: 1.5;
+}
+
 h1,
 h2,
 h3,
@@ -66,13 +70,14 @@ p {
 
 .numbered-title {
   font-family: $ff-sans-cond;
-  font-size: $fs-500;
+  font-size: 1.6rem;
   text-transform: uppercase;
   letter-spacing: 4.72px;
+  margin-bottom: 1rem;
 
   & span {
     margin-right: 0.5em;
-    font-weight: 700;
+    font-weight: 600;
     color: #{'hsl(var(--clr-white), .25 )'};
   }
 }

@@ -7,12 +7,12 @@ const CrewMember: FC<Props> = ({ crewMember }) => {
   const { name, bio, role, images } = crewMember;
   return (
     <>
-      <article className='crew-details flow'>
+      <article className='crew-details flow '>
         <header className='flow flow--space-small'>
-          <h2 className='fs-600 ff-serif uppercase'>{role}</h2>
-          <p className='fs-700 uppercase ff-serif'>{name}</p>
+          <h2 className='fs-500 ff-serif uppercase'>{role}</h2>
+          <p className='fs-700 uppercase ff-serif mb-4'>{name}</p>
         </header>
-        <p>{bio}</p>
+        <p className='text-accent'>{bio}</p>
       </article>
 
       <img src={images.png} alt={name} />

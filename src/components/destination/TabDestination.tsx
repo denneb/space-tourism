@@ -16,8 +16,9 @@ export const TabDestination: FC<Props> = ({
       onClick={() => {
         onClick(label);
       }}
-      aria-selected={isActive}
-      className='uppercase ff-sans-cond text-accent  letter-spacing-2'
+      className={`uppercase ff-sans-cond text-accent  letter-spacing-2 ${
+        isActive ? 'active-tab' : ''
+      }`}
     >
       {label}
     </button>

@@ -49,17 +49,12 @@
   border: 1px solid #f1f1f1;
 }
 
-/* 
+.border2 {
+  border: 1px solid #e1e1a2;
+}
 
-la expresion * + * implica que los estilos aplicaran
-a todos los hijos que tengan un hermano antes que ellos
-lo que quiere decir que el estilo aplicara a todos los elementos
-hijos, menos al primeroc, otro modo de llegar a lo mismo es con
-*:not(:first-child)
-
-*/
 .flow > * + * {
-  margin-top: $flow-space;
+  margin-top: 1rem;
 }
 
 .flow__space-small {
@@ -74,26 +69,37 @@ hijos, menos al primeroc, otro modo de llegar a lo mismo es con
   overflow: hidden;
   padding: 0;
   position: absolute;
-  white-space: nowrap; /* added line */
+  white-space: nowrap;
   width: 1px;
 }
 
 .underline-indicators {
-  & > * {
+  & a {
     border: 0;
     border-bottom: 0.2rem solid #{'hsl(var(--clr-white), 0 )'};
     cursor: pointer;
-    padding: 0.5rem 0;
-    background-color: transparent;
+    padding: 0rem 0;
   }
 
-  & > *:hover,
-  & > *:focus {
+  & a:hover,
+  & a:focus {
     border-color: #{'hsl(var(--clr-white), 0.25 )'};
   }
 
-  & > .active,
-  & > [aria-selected='true'] {
+  & button {
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+  & button:hover,
+  & button:focus {
+    border-color: #{'hsl(var(--clr-white), 0.25 )'};
+  }
+
+  .active,
+  & [aria-selected='true'] {
     color: #{'hsl(var(--clr-white), 1 )'};
     border-color: #{'hsl(var(--clr-white), 1 )'};
   }
@@ -101,6 +107,10 @@ hijos, menos al primeroc, otro modo de llegar a lo mismo es con
 
 .d-block {
   display: block;
+}
+
+.p-0 {
+  padding: 0 !important;
 }
 
 .p-1 {
@@ -116,14 +126,41 @@ hijos, menos al primeroc, otro modo de llegar a lo mismo es con
 }
 
 .mt-1 {
-  margin-top: 1rem;
+  margin-top: 0.25rem;
 }
 
 .mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.mt-4 {
   margin-top: 2rem;
 }
-.mt-3 {
+.mt-5 {
   margin-top: 3rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+  margin-top: 0.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 2rem;
+}
+.mb-5 {
+  margin-bottom: 3rem;
 }
 
 .w-100 {

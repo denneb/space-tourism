@@ -18,14 +18,8 @@
   padding-inline: 1rem;
   padding-bottom: 3rem;
 
-  /*
-  otra opcion para centrar los elementos
-  place-content: center;
-  row-gap: 7vh;*/
-
-  & p:not([class]) {
-    /*maximo numero de caracteres a lo ancho*/
-    max-width: 50ch;
+  &__home p {
+    max-width: 39ch;
   }
 
   &__destination {
@@ -84,6 +78,7 @@
   }
 
   & > .crew-details {
+    margin-left: 0;
     grid-area: content;
   }
 }
@@ -92,15 +87,30 @@
   opacity: 0.5;
 }
 
-@media (min-width: 35em) {
+.crew-details > p {
+  max-width: 45ch;
+  color: #{'hsl(var(--clr-light) )'};
+}
+
+@media (max-width: 45em) {
+  .grid-container__crew > .dot-indicators {
+    margin-top: 2rem;
+  }
+}
+
+@media (min-width: 45em) {
   .numbered-title {
     justify-self: start;
-    margin-top: 2rem;
+    margin-top: 0rem;
   }
 
   .destination-meta {
     flex-direction: row;
     justify-content: space-evenly;
+  }
+
+  .grid-container__home p {
+    max-width: 42ch;
   }
 
   .grid-container__crew {
@@ -110,19 +120,26 @@
       'content'
       'tabs'
       'image';
+
+    & > h1 {
+      margin-bottom: 2rem;
+      margin-left: 1rem;
+    }
+
+    & > article {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .crew-details > p {
+    max-width: 50ch;
   }
 }
 
-@media (min-width: 45em) {
+@media (min-width: 55em) {
   .grid-container {
-    /*
-  la funcion minmax() obtiene un numero entre el numero minimo y maximo dado,
-  la funcion se puede usar dentro de grid-template-columns,grid-template-rows,
-  grid-auto-columns, grid-auto-rows
-  1fr significa que tome el espacio disponible para su uso
-  */
     text-align: left;
-    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 35rem) minmax(0, 32rem) minmax(
         1rem,
         1fr
       );
@@ -141,19 +158,26 @@
       align-items: end;
     }
 
+    &__home p {
+      max-width: 45ch;
+    }
+
     &__destination {
       justify-items: start;
       align-content: start;
-      /*Los puntos  representan un espacio vacio en el template*/
+
       grid-template-areas:
         '. title title .'
         '. image tabs .'
         '. image content .';
     }
 
-    &__destination > img,
+    &__destination > img {
+      max-width: 70%;
+    }
+
     &__crew > img {
-      max-width: 90%;
+      max-width: 80%;
     }
   }
 
@@ -164,7 +188,7 @@
 
   .grid-container__crew {
     grid-template-areas:
-      '. title title .'
+      '. title image .'
       '. content image .'
       '. tabs image .';
 
@@ -172,8 +196,9 @@
       justify-self: start;
     }
 
-    /* & > img {
-      align-self: end;
-    }*/
+    /*Extra*/
+    & > .crew-details {
+      justify-self: start;
+    }
   }
 }

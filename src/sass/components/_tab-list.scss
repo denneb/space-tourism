@@ -1,3 +1,8 @@
 .tab-list {
   gap: $gap-2;
 }
+
+.active-tab {
+  color: #{'hsl(var(--clr-white), 1 )'};
+  border-bottom: 3px solid #{'hsl(var(--clr-white), 1 )'} !important;
+}

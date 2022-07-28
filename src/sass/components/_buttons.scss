@@ -1,12 +1,6 @@
 .circle-button {
-  aspect-ratio: 1; /* same as 1/1 */
+  aspect-ratio: 1;
   border-radius: 50%;
-  /* la propiedad display:grid fue usada para centrar facilmente el texto
-  el problema con esto es que grid es un inner-display value y el 
-  outer-display-value se convierte en block y como es un block element
-  esta creciendo to fit the page automaticamente, se arregla cambiando a 
-  'inline-grid' lo que quiere decir que no se expandira para ajustarse al contenedor  
-  */
   display: inline-grid;
   font-size: 2rem;
   padding: 0 2em;
@@ -14,10 +8,6 @@
   position: relative;
   text-decoration: none;
   z-index: 1;
-
-  /* z-index: 1; si se agrega este valor se crea 
-  un nuevo stacking context lo que permite que el 
-  elemento hijo no este mas atras que el elemento padre */
 
   &::after {
     background: #{'hsl(var(--clr-white), .15 )'};

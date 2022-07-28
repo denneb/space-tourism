@@ -4,14 +4,14 @@
   background-size: cover;
 }
 
-@media (min-width: 35rem) {
+@media (min-width: 45rem) {
   .destination {
     background-image: url('../../assets/destination/background-destination-tablet.jpg');
     background-position: center center;
   }
 }
 
-@media (min-width: 45rem) {
+@media (min-width: 55rem) {
   .destination {
     background-image: url('../../assets/destination/background-destination-desktop.jpg');
   }

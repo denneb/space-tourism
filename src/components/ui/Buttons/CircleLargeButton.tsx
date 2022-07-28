@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 interface Props {
   url: string;
@@ -7,11 +8,11 @@ interface Props {
 
 export const CircleLargeButton: FC<Props> = ({ url, label }) => {
   return (
-    <a
-      href={url}
+    <Link
+      to={url}
       className='circle-button uppercase ff-serif  text-dark  bg-white'
     >
       {label}
-    </a>
+    </Link>
   );
 };
