@@ -13,7 +13,7 @@ Users should be able to:
 - View each page and be able to toggle between the tabs to see new information
 
 ### Links
-
+- [Figma](https://www.figma.com/file/ECUzoNaTXSlgOisRbIOrE3/space-tourism-website) 
 - Live site:
 
 ## Available Scripts
